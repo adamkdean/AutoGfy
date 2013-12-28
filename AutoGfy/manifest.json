@@ -3,7 +3,7 @@
 
   "name": "AutoGfy",
   "description": "Converts all gif links into gfycat links.",
-  "version": "1.0",
+  "version": "1.1",
 
   "browser_action": {
     "default_icon": "icon.png",
