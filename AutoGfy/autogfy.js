@@ -1,27 +1,33 @@
-if (typeof String.prototype.endsWith !== 'function') {
-  String.prototype.endsWith = function(suffix) {
-    return this.indexOf(suffix, this.length - suffix.length) !== -1;
-  };
-}
-
 var autogfy = {
-  processGifs: function() {
-    // TODO: implement img tag replacement
-    var prefix = 'http://gfycat.com/fetch/';
-    var $anchors = $('a');
-    this.autogfyElements($anchors, 'href', prefix);
-  },
+    delay: 500,
+    prefix: 'http://gfycat.com/fetch/',
+    initialise: function () {
+        // initially replace all anchors
+        this.autogfyAnchors();
 
-  autogfyElements: function(elements, attribute, prefix) {
-    for(var i = 0; i < elements.length; i++) {
-      var source = $(elements[i]).attr(attribute);
-      if (source && source.endsWith('.gif')) {
-        $(elements[i]).attr(attribute, prefix + source);
-      }
+        // update all dynamically added anchors
+        var timeout;
+        $(document).bind('DOMSubtreeModified', function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                autogfy.autogfyAnchors();
+            }, this.delay);
+        });
+    },
+    autogfyAnchors: function () {
+        var $anchors = $('a');
+        for (var i = 0; i < $anchors.length; i++) {
+            var source = $($anchors[i]).attr('href');
+            if (source && source.endsWith('.gif') && !source.startsWith(this.prefix)) {
+                if (source.startsWith('//')) {
+                    source = 'http:' + source;
+                }
+                $($anchors[i]).attr('href', this.prefix + source);
+            }
+        }
     }
-  }
 };
 
-$(function() {
-  autogfy.processGifs();
+$(function () {
+    autogfy.initialise();
 })
