@@ -1,20 +1,28 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
+    "name": "AutoGfy - Automatic Gfycat",
+    "short_name": "AutoGfy",
+    "version": "1.2.1",
 
-  "name": "AutoGfy",
-  "description": "Converts all gif links into gfycat links.",
-  "version": "1.2",
+    "description": "Converts all gif links into gfycat links.",
+    
+    "icons": { 
+        "16": "assets/icon16.png",
+        "19": "assets/icon19.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
 
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
+    "browser_action": {
+        "default_icon": "assets/icon19.png",
+        "default_popup": "src/popup.html"
+    },
 
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "run_at": "document_end",
-      "js": ["jquery.js", "js-extend.js", "autogfy.js"]
-    }
-  ]
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "run_at": "document_end",
+            "js": ["src/jquery.js", "src/js-extend.js", "src/autogfy.js"]
+        }
+    ]
 }
