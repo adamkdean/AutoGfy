@@ -2,10 +2,10 @@
 
 Converts all gif links into gfycat links.
 
-Chrome WebStore Link: [AutoGfy - Automatic Gfycat](https://chrome.google.com/webstore/detail/autogfy-automatic-gfycat/aleldfepmngfpemelpfkjcpbnegeliad)
+~~Chrome WebStore Link: [AutoGfy - Automatic Gfycat](https://chrome.google.com/webstore/detail/autogfy-automatic-gfycat/aleldfepmngfpemelpfkjcpbnegeliad)~~
 
-# Note
+# Taken down
 
-I should really expand upon this.
+So it turns out Google took this down without telling me. There had been a few bug reports but again, no emails from Google or anything. Great.
 
-TODO for 2016.
+If anyone still needs this, I'll fix it up, but until then, RIP AutoGfy. – AKD, July '16
